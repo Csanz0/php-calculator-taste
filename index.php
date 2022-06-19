@@ -60,57 +60,8 @@
         if($operation == 'dividir'){
             return $op->dividir($number1,$number2,$number3);
         }
+        return print $op->__construct();
     }
-   /* function sumar($number1,$number2,$number3){
-        $result = $number1 + $number2 + $number3;
-        return print $result;
-    }
-    function restar($number1,$number2,$number3){
-        $result = $number1 - $number2 - $number3;
-        return print $result;
-    }
-    function multiplicar($number1,$number2,$number3){
-        $result = $number1 * $number2 * $number3;
-        return print $result;
-    }
-    function dividir($number1,$number2,$number3){
-        if ($number1 == 0 || $number2 == 0 || $number3 == 0) {
-         return print "No se puede dividir entre 0";   
-        }else{
-           return print $result = ($number1 / $number2) / $number3;
-        }
-       
-    }
-    
-    function operation($operation,$number1,$number2,$number3){
-        switch ($operation) {
-            case 'sumar':
-
-                return sumar($number1,$number2,$number3);
-
-               break;
-            case 'restar':
-
-                return restar($number1,$number2,$number3);
-
-                break;
-            case 'multiplicar':
-
-                return multiplicar($number1,$number2,$number3);
-
-                break;
-            case 'dividir':
-
-              return dividir($number1,$number2,$number3);
-
-                break;
-            default:
-
-                return print "Operacion Invalida";
-                break;
-        }
-    }
-    */
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -141,11 +92,20 @@
             </div>
                 <div class="container-fluid mb-2 d-lg-flex flex-lg-row flex-xxl-wrap flex-sm-{grow-shrink}-1">
 
-                    <input type="text" name="number1" placeholder="0" class="form-control m-1" value="<?php isset($_POST['number1']) && is_numeric($_POST['number1']) ?print $_POST['number1']:"0";?>">
+                    <input type="text" name="number1" placeholder="0" min="0" class="form-control m-1" value="<?php 
+                    if(!isset($_POST['btn']) || !is_numeric($_POST['number1'])){ echo '0';}
+                    if(isset($_POST['btn']) && isset($_POST['number1']) && is_numeric($_POST['number1'])){ echo $_POST['number1'];}
+                    ?>">
                     
-                    <input type="text" name="number2"placeholder="0" class="form-control m-1" value="<?php isset($_POST['number2']) && is_numeric($_POST['number2']) ?print $_POST['number2']:"0";?>">
+                    <input type="text" name="number2"placeholder="0" class="form-control m-1" value="<?php 
+                    if(!isset($_POST['btn']) || !is_numeric($_POST['number2'])){ echo '0';}
+                    if(isset($_POST['btn']) && isset($_POST['number2']) && is_numeric($_POST['number2'])){ echo $_POST['number2'];}
+                    ?>">
                     
-                    <input type="text" name="number3"  placeholder="0" class="form-control m-1" value="<?php isset($_POST['number3']) && is_numeric($_POST['number3']) ?print $_POST['number3']:"0";?>">
+                    <input type="text" name="number3"  placeholder="0" class="form-control m-1" value="<?php 
+                    if(!isset($_POST['btn']) || !is_numeric($_POST['number3'])){ echo '0';}
+                    if(isset($_POST['btn']) && isset($_POST['number3']) && is_numeric($_POST['number3'])){ echo $_POST['number3'];}
+                    ?>">
                     
                 </div>
                 <div class="container-fluid mb-2 flex-sm-{grow-shrink}-1">
