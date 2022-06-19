@@ -3,62 +3,63 @@
         public $number1;
         public $number2;
         public $number3;
-
+       
+        function __construct(){
+            $this->err = "Error al realizar la operación.";
+            return $this->err;
+        }
 
     function sumar($number1,$number2,$number3){
         $this->number1 =intval($number1);
         $this->number2 = intval($number2);
         $this->number3 = intval($number3);
-        $resutl = $this->number1 + $this->number2 + $this->number3;
-        return print $result;
+        $this->result = $this->number1 + $this->number2 + $this->number3;
+        echo $this->result;
     }
 
     function restar($number1,$number2,$number3){
         $this->number1 =intval($number1);
         $this->number2 = intval($number2);
         $this->number3 = intval($number3);
-        $resutl = $this->number1 - $this->number2 - $this->number3;
-        return print $result;
+        $this->result = $this->number1 - $this->number2 - $this->number3;
+        echo  $this->result;
     }
     function multiplicar($number1,$number2,$number3){
         $this->number1 =intval($number1);
         $this->number2 = intval($number2);
         $this->number3 = intval($number3);
-        $resutl = $this->number1 * $this->number2 * $this->number3;
-        return print $result;
+        $this->result = $this->number1 * $this->number2 * $this->number3;
+        echo  $this->result;
     }
     function dividir($number1,$number2,$number3){
         $this->number1 =intval($number1);
         $this->number2 = intval($number2);
         $this->number3 = intval($number3);
-        $resutl = $this->number1 % $this->number2 % $this->number3;
-        return print $result;
+        $this->result = $this->number1 / $this->number2 / $this->number3;
+        echo  $this->result;
     }
 }
-    $number1 = "";
-    $number2 = "";
-    $number3 = "";
-    $result ="";
-
     function verifyOperation($number1,$number2,$number3,$operation){
-        if (isset($number1) && is_numeric($number1)) {
-            $number1 = intval($_POST["number1"]);
-        }else {
-            $number1 = 0;
+    $op = new Operation();
+        if(!isset($number1) || !is_numeric($number1) || !isset($number2) || !is_numeric($number2) || !isset($number3) || !is_numeric($number3) || !isset($operation)){
+         return print $op->__construct(); 
         }
-        
-        if (isset($number2) && is_numeric($number2)) {
-            $number2 = intval($_POST["number2"]);
-        }else {
-            $number2 = 0;
+
+        if($operation == 'sumar'){
+            return $op->sumar($number1,$number2,$number3);
         }
-       
-        if (isset($number3)&& is_numeric($number3)) {
-            $number3 = intval($_POST["number3"]);
-        }else {
-            $number3 = 0;
+
+        if($operation == 'restar'){
+            return  $op->restar($number1,$number2,$number3);
         }
-        return operation($operation,$number1,$number2,$number3);
+
+        if($operation == 'multiplicar'){
+            return $op->multiplicar($number1,$number2,$number3);
+        }
+
+        if($operation == 'dividir'){
+            return $op->dividir($number1,$number2,$number3);
+        }
     }
    /* function sumar($number1,$number2,$number3){
         $result = $number1 + $number2 + $number3;
@@ -140,11 +141,11 @@
             </div>
                 <div class="container-fluid mb-2 d-lg-flex flex-lg-row flex-xxl-wrap flex-sm-{grow-shrink}-1">
 
-                    <input type="text" name="number1" placeholder="0" class="form-control m-1" value="<?php isset($_POST['number1']) && is_numeric($_POST['number1']) ?print $_POST['number1']:"";?>">
+                    <input type="text" name="number1" placeholder="0" class="form-control m-1" value="<?php isset($_POST['number1']) && is_numeric($_POST['number1']) ?print $_POST['number1']:"0";?>">
                     
-                    <input type="text" name="number2"placeholder="0" class="form-control m-1" value="<?php isset($_POST['number2']) && is_numeric($_POST['number2']) ?print $_POST['number2']:"";?>">
+                    <input type="text" name="number2"placeholder="0" class="form-control m-1" value="<?php isset($_POST['number2']) && is_numeric($_POST['number2']) ?print $_POST['number2']:"0";?>">
                     
-                    <input type="text" name="number3"  placeholder="0" class="form-control m-1" value="<?php isset($_POST['number3']) && is_numeric($_POST['number3']) ?print $_POST['number3']:"";?>">
+                    <input type="text" name="number3"  placeholder="0" class="form-control m-1" value="<?php isset($_POST['number3']) && is_numeric($_POST['number3']) ?print $_POST['number3']:"0";?>">
                     
                 </div>
                 <div class="container-fluid mb-2 flex-sm-{grow-shrink}-1">
