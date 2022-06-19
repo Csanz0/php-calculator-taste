@@ -1,4 +1,40 @@
 <?php 
+    Class Operation{
+        public $number1;
+        public $number2;
+        public $number3;
+
+
+    function sumar($number1,$number2,$number3){
+        $this->number1 =intval($number1);
+        $this->number2 = intval($number2);
+        $this->number3 = intval($number3);
+        $resutl = $this->number1 + $this->number2 + $this->number3;
+        return print $result;
+    }
+
+    function restar($number1,$number2,$number3){
+        $this->number1 =intval($number1);
+        $this->number2 = intval($number2);
+        $this->number3 = intval($number3);
+        $resutl = $this->number1 - $this->number2 - $this->number3;
+        return print $result;
+    }
+    function multiplicar($number1,$number2,$number3){
+        $this->number1 =intval($number1);
+        $this->number2 = intval($number2);
+        $this->number3 = intval($number3);
+        $resutl = $this->number1 * $this->number2 * $this->number3;
+        return print $result;
+    }
+    function dividir($number1,$number2,$number3){
+        $this->number1 =intval($number1);
+        $this->number2 = intval($number2);
+        $this->number3 = intval($number3);
+        $resutl = $this->number1 % $this->number2 % $this->number3;
+        return print $result;
+    }
+}
     $number1 = "";
     $number2 = "";
     $number3 = "";
@@ -24,7 +60,7 @@
         }
         return operation($operation,$number1,$number2,$number3);
     }
-    function sumar($number1,$number2,$number3){
+   /* function sumar($number1,$number2,$number3){
         $result = $number1 + $number2 + $number3;
         return print $result;
     }
@@ -73,7 +109,7 @@
                 break;
         }
     }
-
+    */
 ?>
 <!DOCTYPE html>
 <html lang="en">
